@@ -22,8 +22,20 @@ function App() {
     setTodos(() => todos.filter((todo) => todo.id !== id));
   }
 
+  let completeTodo = (id) =>
+  {
+    setTodos(() => todos.map((todo) => {
+      if(todo.id === id)
+      {
+        return {...todo, completed: !todo.completed}
+      }
+      return todo;
+    }))
+  }
+
   let providerValue = {
-    deleteTodo
+    deleteTodo,
+    completeTodo
   }
 
   return (
@@ -34,6 +46,7 @@ function App() {
           <TodoForm addTodo={addTodo}/>
           <TodoItems todos={todos}/>
         </TodoContext.Provider>
+        {console.log(todos)}
       </div>
     </main>
   )

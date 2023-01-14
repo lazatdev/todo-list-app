@@ -3,9 +3,16 @@ import {TodoContext} from '../App';
 
 let SingleTodo = ({todo}) =>
 {
-    let {deleteTodo} = useContext(TodoContext);
+    let {deleteTodo, completeTodo} = useContext(TodoContext);
     return (
         <li className='todo-item'>
+            <div className='checkbox-completed-todo'>
+                <input 
+                    type='checkbox' 
+                    checked={todo.completed} 
+                    onChange={() => completeTodo(todo.id)}
+                />
+            </div>
             {todo.todoName}
             <div className='todo-management'>
                 <span 
