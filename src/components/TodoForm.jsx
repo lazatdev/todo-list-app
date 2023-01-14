@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Button from './Button';
 
-let TodoForm = () =>
+let TodoForm = ({addTodo}) =>
 {
     let [input, setInput] = useState('');
 
@@ -11,8 +11,15 @@ let TodoForm = () =>
         setInput(event.target.value);
     }
 
+    let handleSubmit = (event) =>
+    {
+        event.preventDefault();
+        addTodo(input);
+        setInput('');
+    }
+
     return (
-        <form className='todoForm'>
+        <form className='todoForm' onSubmit={handleSubmit}>
             <input 
                 type='text' 
                 placeholder='Please write your todo!'
