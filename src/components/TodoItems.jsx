@@ -1,16 +1,23 @@
 import React from "react";
 import SingleTodo from './SingleTodo';
 
-let TodoItems = ({todos}) =>
+let TodoItems = ({todos, getNumberOfTodos}) =>
 {
     return (
-        <ul className="todo-items">
-            {
-                todos.map((todo, index) => {
-                    return <SingleTodo key={index} todo={todo}/>
-                })
-            }
-        </ul>
+        <>
+            <h3>Todo List</h3>
+            <div className="numberOfTodos">
+                {`${getNumberOfTodos()} Todos`}
+            </div>
+            <ul className="todo-items">
+                {
+                    todos.map((todo, index) => {
+                        return <SingleTodo key={index} todo={todo}/>
+                    })
+                }
+            </ul>
+        </>
+
     )
 }
 

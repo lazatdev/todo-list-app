@@ -33,6 +33,8 @@ function App() {
     }))
   }
 
+  let getNumberOfTodos = () => todos.length;
+
   let providerValue = {
     deleteTodo,
     completeTodo
@@ -44,7 +46,7 @@ function App() {
         <h1>Todo List App</h1>
         <TodoContext.Provider value={providerValue}>
           <TodoForm addTodo={addTodo}/>
-          <TodoItems todos={todos}/>
+          <TodoItems todos={todos} getNumberOfTodos={getNumberOfTodos}/>
         </TodoContext.Provider>
         {console.log(todos)}
       </div>
