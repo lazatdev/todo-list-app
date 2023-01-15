@@ -1,4 +1,5 @@
 import React, { useState, createContext } from 'react';
+import Button from './components/Button';
 import TodoForm from './components/TodoForm';
 import TodoItems from './components/TodoItems';
 
@@ -35,6 +36,11 @@ function App() {
 
   let getNumberOfTodos = () => todos.length;
 
+  let deleteAllTodos = () =>
+  {
+    setTodos([]);
+  }
+
   let providerValue = {
     deleteTodo,
     completeTodo
@@ -48,6 +54,9 @@ function App() {
           <TodoForm addTodo={addTodo}/>
           <TodoItems todos={todos} getNumberOfTodos={getNumberOfTodos}/>
         </TodoContext.Provider>
+        <div className='delete-todos'>
+          <Button content={'Delete all todos'} deleteAllTodos={deleteAllTodos}/>
+        </div>
         {console.log(todos)}
       </div>
     </main>

@@ -1,6 +1,12 @@
 import React from 'react';
 
-let Button = ({backgroundColor, fontColor, content, setIsAll}) =>
+let Button = ({
+    backgroundColor, 
+    fontColor, 
+    content, 
+    setIsAll,
+    deleteAllTodos
+    }) =>
 {
     let btnStyle = {
         backgroundColor: backgroundColor,
@@ -13,6 +19,7 @@ let Button = ({backgroundColor, fontColor, content, setIsAll}) =>
         {
             case 'All': return (<button style={btnStyle} onClick={() => setIsAll(true)}>{content}</button>);
             case 'Done': return (<button style={btnStyle} onClick={() => setIsAll(false)}>{content}</button>);
+            case 'Delete all todos': return (<button style={btnStyle} onClick={deleteAllTodos}>{content}</button>);
             default: return (<button style={btnStyle}>{content}</button>);
         }
     }
