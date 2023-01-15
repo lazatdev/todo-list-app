@@ -7,6 +7,8 @@ export let TodoContext = createContext();
 
 function App() {
   let [todos, setTodos] = useState([]);
+  let [editTodo, setEditTodo] = useState(null);
+
   // Helper Functions
   let addTodo = (todoName) =>
   {
@@ -21,6 +23,18 @@ function App() {
   let deleteTodo = (id) =>
   {
     setTodos(() => todos.filter((todo) => todo.id !== id));
+  }
+
+  let updateTodo = (todo) =>
+  {
+    setTodos(() => todos.map((singleTodo) => {
+      if(singleTodo.id === todo.id)
+      {
+        return {...singleTodo, todoName: todo.todoName}
+      }
+      return todo;
+    }));
+    setEditTodo(null);
   }
 
   let completeTodo = (id) =>
@@ -48,7 +62,8 @@ function App() {
 
   let providerValue = {
     deleteTodo,
-    completeTodo
+    completeTodo,
+    setEditTodo
   }
 
   return (
@@ -56,7 +71,7 @@ function App() {
       <div className="container">
         <h1>Todo List App</h1>
         <TodoContext.Provider value={providerValue}>
-          <TodoForm addTodo={addTodo}/>
+          <TodoForm addTodo={addTodo} editTodo={editTodo} setEditTodo={setEditTodo} updateTodo={updateTodo}/>
           <TodoItems todos={todos} getNumberOfTodos={getNumberOfTodos}/>
         </TodoContext.Provider>
         <div className='delete-todos'>
