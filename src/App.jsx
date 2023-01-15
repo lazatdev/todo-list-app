@@ -41,6 +41,11 @@ function App() {
     setTodos([]);
   }
 
+  let deleteAllDoneTodos = () =>
+  {
+    setTodos(() => todos.filter((todo) => todo.completed !== true));
+  }
+
   let providerValue = {
     deleteTodo,
     completeTodo
@@ -56,6 +61,7 @@ function App() {
         </TodoContext.Provider>
         <div className='delete-todos'>
           <Button content={'Delete all todos'} deleteAllTodos={deleteAllTodos}/>
+          <Button content={'Delete all done todos'} deleteAllDoneTodos={deleteAllDoneTodos}/>
         </div>
         {console.log(todos)}
       </div>
