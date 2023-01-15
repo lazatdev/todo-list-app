@@ -12,6 +12,7 @@ let Button = ({backgroundColor, fontColor, content, setIsAll}) =>
         switch(content)
         {
             case 'All': return (<button style={btnStyle} onClick={() => setIsAll(true)}>{content}</button>);
+            case 'Done': return (<button style={btnStyle} onClick={() => setIsAll(false)}>{content}</button>);
             default: return (<button style={btnStyle}>{content}</button>);
         }
     }
