@@ -8,10 +8,12 @@ let TodoItems = ({todos, getNumberOfTodos}) =>
     let allDoneTodos = todos.filter((todo) => todo.completed === true);
 
     return (
-        <>
-            <h3>Todo List</h3>
-            <div className="numberOfTodos">
-                {`${getNumberOfTodos()} Todos`}
+        <div className="todo-list-container">
+            <div className="top">
+                <h3>Todo List</h3>
+                <div className="numberOfTodos">
+                    {`${getNumberOfTodos()} Todos`}
+                </div>
             </div>
             <div className="display-todos">
                 <Button content={'All'} setIsAll={setIsAll}/>
@@ -26,7 +28,7 @@ let TodoItems = ({todos, getNumberOfTodos}) =>
                     })
                 }
             </ul>
-        </>
+        </div>
     )
 }
 

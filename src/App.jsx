@@ -2,6 +2,7 @@ import React, { useState, createContext } from 'react';
 import Button from './components/Button';
 import TodoForm from './components/TodoForm';
 import TodoItems from './components/TodoItems';
+import './app.scss';
 
 export let TodoContext = createContext();
 
@@ -71,7 +72,12 @@ function App() {
       <div className="container">
         <h1>Todo List App</h1>
         <TodoContext.Provider value={providerValue}>
-          <TodoForm addTodo={addTodo} editTodo={editTodo} setEditTodo={setEditTodo} updateTodo={updateTodo}/>
+          <TodoForm 
+            addTodo={addTodo} 
+            editTodo={editTodo} 
+            setEditTodo={setEditTodo} 
+            updateTodo={updateTodo}
+          />
           <TodoItems todos={todos} getNumberOfTodos={getNumberOfTodos}/>
         </TodoContext.Provider>
         <div className='delete-todos'>

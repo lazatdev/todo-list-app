@@ -40,16 +40,18 @@ let TodoForm = ({addTodo, editTodo, setEditTodo, updateTodo}) =>
     }
 
     return (
-        <form className='todoForm' onSubmit={handleSubmit}>
-            <input 
-                type='text' 
-                placeholder='Your todo...'
-                value={!editTodo ? input : editTodo.todoName}
-                onChange={handleChange}
-            />
-            <Button content={!editTodo ? 'Add' : 'Edit'}/>
+        <div className='container-todoForm'>
+            <form className='todoForm' onSubmit={handleSubmit}>
+                <input 
+                    type='text' 
+                    placeholder='Your todo...'
+                    value={!editTodo ? input : editTodo.todoName}
+                    onChange={handleChange}
+                />
+                <Button content={!editTodo ? 'Add' : 'Edit'}/>
+            </form>
             {errorMsg ? <div className='errorMsg'>{errorMsg}</div> : ''}
-        </form>
+        </div>
     );
 }
 

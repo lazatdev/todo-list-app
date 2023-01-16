@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {TodoContext} from '../App';
+import {BsFillTrashFill, BsPencilSquare} from 'react-icons/bs';
 
 let SingleTodo = ({todo}) =>
 {
@@ -15,8 +16,12 @@ let SingleTodo = ({todo}) =>
             </div>
             {todo.todoName}
             <div className='todo-management'>
-                <span className='delete' onClick={() => deleteTodo(todo.id)}>{'[delete]'}</span>
-                <span className='edit' onClick={() => setEditTodo(todo)}>{'[edit]'}</span>
+                <span className='edit' onClick={() => setEditTodo(todo)}>
+                    <BsPencilSquare/>
+                </span>
+                <span className='delete' onClick={() => deleteTodo(todo.id)}>
+                    <BsFillTrashFill/>
+                </span>
             </div>
         </li>
     )
