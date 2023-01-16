@@ -10,6 +10,7 @@ $paddingLeftRightInput: 12px;
 $fontSizeInput: 15px;
 $deleteTodosBtnColor: #d02a2a;
 $displayTodosBtnColor: #2fad2f;
+$textColor: #323232;
 
 // Base Style
 *
@@ -17,6 +18,7 @@ $displayTodosBtnColor: #2fad2f;
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    border-radius: 0px;
 }
 
 body
@@ -35,12 +37,16 @@ button
     outline: none;
     cursor: pointer;
     padding: $paddingTopBottomInput $paddingLeftRightInput;
-    border-radius: 0px;
     border: none;
     font-size: $fontSizeInput;
     color: #fff;
     text-transform: capitalize;
     width: 30%;
+}
+
+p, h1, h3, div, ul, li, input
+{
+    color: $textColor;
 }
 
 // Components
@@ -91,12 +97,10 @@ main
                 input 
                 {
                     padding: $paddingTopBottomInput $paddingLeftRightInput;
-                    color: #222;
                     font-weight: $regular;
                     outline: none;
                     font-size: $fontSizeInput;
-                    border-radius: 0;
-                    border: 1px solid #222;
+                    border: 1px solid rgb(163, 163, 163);
                     width: 68%;
                     text-transform: capitalize;
                 }
@@ -131,7 +135,7 @@ main
 
             .display-todos
             {
-                margin-bottom: 7px; 
+                margin-bottom: 10px; 
                 
                 button 
                 {
@@ -142,7 +146,8 @@ main
             .todo-items .todo-item
             {
                 text-transform: capitalize;
-                background-color: $bgColor;
+                // background-color: $bgColor;
+                border: 1px solid rgb(163, 163, 163);
                 padding: 7px 10px;
                 align-items: center;
 
