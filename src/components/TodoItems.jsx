@@ -4,7 +4,7 @@ import Button from './Button';
 
 let TodoItems = ({todos, getNumberOfTodos}) =>
 {
-    let [isAll, setIsAll] = useState(false);
+    let [isAll, setIsAll] = useState(true);
     let allDoneTodos = todos.filter((todo) => todo.completed === true);
 
     return (
@@ -21,11 +21,12 @@ let TodoItems = ({todos, getNumberOfTodos}) =>
             </div>
             <ul className="todo-items">
                 {
-                    isAll ? todos.map((todo, index) => {
-                        return <SingleTodo key={index} todo={todo}/>
-                    }) : allDoneTodos.map((todo, index) => {
-                        return <SingleTodo key={index} todo={todo}/>
-                    })
+                    !todos.length ? 'Empty todo list.' :
+                        isAll ? todos.map((todo, index) => {
+                            return <SingleTodo key={index} todo={todo}/>
+                        }) : allDoneTodos.map((todo, index) => {
+                            return <SingleTodo key={index} todo={todo}/>
+                        })
                 }
             </ul>
         </div>
