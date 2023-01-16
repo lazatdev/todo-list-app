@@ -33,7 +33,7 @@ function App() {
       {
         return {...singleTodo, todoName: todo.todoName}
       }
-      return todo;
+      return singleTodo;
     }));
     setEditTodo(null);
   }
