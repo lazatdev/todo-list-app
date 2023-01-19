@@ -1,10 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Button from './Button';
 
 let TodoForm = ({addTodo, editTodo, setEditTodo, updateTodo}) =>
 {
     let [input, setInput] = useState('');
     let [errorMsg, setErrorMsg] = useState('');
+    let inputRef = useRef();
+
+    useEffect(() => {
+        inputRef.current.focus();
+    },[input, editTodo])
 
     // Helper Functions
     let handleChange = (event)=>
@@ -44,6 +49,7 @@ let TodoForm = ({addTodo, editTodo, setEditTodo, updateTodo}) =>
             <form className='todoForm' onSubmit={handleSubmit}>
                 <input 
                     type='text' 
+                    ref={inputRef}
                     placeholder='Your todo...'
                     value={!editTodo ? input : editTodo.todoName}
                     onChange={handleChange}
